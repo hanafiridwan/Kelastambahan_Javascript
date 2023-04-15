@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Materi tentang Object dan Array</title>
+</head>
+<body>
+
+    <h2>Object</h2>
+    <p id="tampil">
+
+    </p>
+    <h1 id="karyawan"></h1>
+
+    <script>
+        //Ini materi OBJECT
+          // let biodata = {
+          //     nama_depan : "Ridwan", //selalu tambahakan koma
+          //     nama_belakang: "Hanafi"
+          // }
+
+          // document.getElementById("tampil").innerHTML = biodata.nama_depan + " " + biodata.nama_belakang
+          // getElementById sama seperti pemanggilan css dengan id/tanda pagar
+
+        //Ini Materi ARRAY
+        let karyawan = ["Adi", "Bayu", "Yanto", "Udin"]
+        // document.getElementById("karyawan").innerHTML = karyawan
+        //console.log(karyawan) 
+          //akan muncul 3 data yang dihitung dari 0. Tapi memiliki  length 3. Dengan ini kita bis amembuat perulangan
+        for(let i = 0; i < karyawan.length; i++){
+            console.log(i) //akan muncul angka 0, 1, 2, dst
+        }
+
+    </script>
+    
+</body>
+</html>
