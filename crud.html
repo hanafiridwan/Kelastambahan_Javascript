@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ini materi CRUD</title>
+</head>
+<body>
+
+    <div class="nama_karyawan">
+        <h1>Nama karyawan</h1>
+        <input type="text" name="nama" id="nama" placeholder="Masukan nama anda">
+        <input type="button" onclick="addKaryawan()" value="tambah karyawan">
+    </div>
+    <div class="id">
+        <ul id="list-karyawan">
+
+        </ul>
+    </div>
+
+    
+    
+    <script>
+        let namaKaryawan = ["Hadi", "Yusuf", "Jamal"];
+
+        function showKaryawan(){
+            let listKaryawan = document.getElementById("list-karyawan")
+            // console.log(listKaryawan) ==> hasilnya akan eror
+            listKaryawan.innerHTML = "";
+
+            for(let i = 0; i < namaKaryawan.length; i++){
+                var btnEdit = "<a href='#' onclick='editNama("+i+")'>Edit</a>";
+                var btnHapus = "<a href='#' onclick='hapusNama("+i+")'>Hapus</a>";
+                listKaryawan.innerHTML += "<li>" + namaKaryawan[i] +" ["+btnEdit + " | "+ btnHapus +"]" + "</li>";
+            }
+        }
+
+        function addKaryawan(){
+            let input = document.getElementById("nama");
+            //console.log(input) //semua elemen html input akan keambil
+            namaKaryawan.push(input.value); //nama yang akan ditanmbahkan akan ada di array namaKaryawan
+            showKaryawan();
+        }
+
+        function editNama(id){
+            let newNama = prompt("Masukan nama baru " + namaKaryawan[id]);
+            namaKaryawan[id] = newNama;
+            showKaryawan();
+        }
+
+        function hapusNama(id){
+            namaKaryawan.splice(id, 1); //splice ini adalah hapus dan satu adalah tombol yg pertama di klik
+            showKaryawan();
+        }
+
+        showKaryawan(); //agar default dari array diatas bisa terlihat saat dijalankan
+    </script>
+    
+</body>
+</html>
