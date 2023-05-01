@@ -14,7 +14,7 @@ tombol.addEventListener("click", function(e){
     }else if(nilaiTombol == "="){
         kalkulator.value = eval(kalkulator.value); //maksud dari eval adalah saat meng-klik tanda =, maka hasil hitungannya akan muncul.
     }else {
-        kalkulator.value = kalkulator.value + nilaiTombol;
+        kalkulator.value = kalkulator.value + nilaiTombol; //"apapun yang diinput user isinya akan sama seperti nilaiTombol"
     }
 });
 //alert(nilaiTombol); hasilnya kita bisa membuat setiap tombol yg ditekan muncul sebagai Alert, yg berarti kita berhasil membuatnya menjadi dinamis
