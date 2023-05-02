@@ -10,7 +10,7 @@
 
     <div class="nama_karyawan">
         <h1>Nama karyawan di sini</h1>
-        <input type="text" name="nama" id="nama" placeholder="Masukan nama anda disini">
+        <input type="text" name="nama" id="name" placeholder="Masukan nama anda disini">
         <input type="button" onclick="addKaryawan()" value="Tambahkan Karyawan">
     </div>
 
@@ -21,22 +21,38 @@
     </div>
 
     <script>
-        let namaKaryawan = ["udin", "saipul", "burhan"];
+        let nameKaryawan = ["udin", "saipul", "burhan"];
 
         function showKaryawan(){
             let listKaryawan = document.getElementById("list-karyawan");
             listKaryawan.innerHTML = "";
 
-            for(let i = 0; i < namaKaryawan.length; i++){
-                listKaryawan.innerHTML += "<li>" + namaKaryawan[i] + "</li>";
+            for(let i = 0; i < nameKaryawan.length; i++){
+                listKaryawan.innerHTML += "<li>" + nameKaryawan[i] + "</li>";
+                var btnEdit = "<a href='#' onclick='editName("+i+")'>Edit</a>";
+                var btnDelete = "<a href='#' onclick='deleteName("+i+")'>Hapus</a>";
+                listKaryawan.innerHTML += "<li>" + nameKaryawan[i] +" ["+btnEdit + " | "+btnDelete +"]" + "</li>";
             }
         }
 
         function addKaryawan(){
-            let input = document.getElementById("nama");
-            namaKaryawan.push(input.value);
+            let input = document.getElementById("name");
+            nameKaryawan.push(input.value);
             showKaryawan();
         }
+
+        function editName(id){
+            let newName = prompt("Masukan nama yg baru " + nameKaryawan[id]);
+            nameKaryawan[id] = newName;
+            showKaryawan();
+        }
+
+        function deleteName(id){
+            nameKaryawan.splice(id, 1);
+            showKaryawan()
+        }
+
+        showKaryawan();
     </script>
     
 </body>
